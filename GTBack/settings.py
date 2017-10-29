@@ -12,6 +12,16 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+TWILIO_NUMBER = os.environ.get("TWILIO_NUMBER")
+ACCOUNT_SID = os.environ.get("ACCOUNT_SID")
+AUTH_TOKEN = os.environ.get("AUTH_TOKEN")
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
